@@ -23,5 +23,6 @@ parts:
   lapce:
     source: https://github.com/lapce/lapce.git
     source-type: git
+    override-pull: snapcraftctl pull && sudo apt-get install pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev
     plugin: rust
-    build-packages: [cmake pkg-config]
+    build-packages: [cmake]
