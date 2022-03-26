@@ -19,15 +19,14 @@ confinement: classic # use 'strict' once you have the right plugs and slots
 
 apps:
   lapce:
-    environment:
-      PATH: /root/parts/lapce/build:/root/parts/lapce/install/bin
-    command: lapce
+    command: target/release/lapce
 
 parts:
   lapce:
     source: https://github.com/lapce/lapce.git
     source-type: git
     override-pull: snapcraftctl pull && sudo apt-get install -y pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev
+    override-build: curl --proto =https --tlsv1.2 -sSf https://sh.rustup.rs && sh -s -- -y --no-modify-path --profile=minimal && export PATH=/root/.cargo/bin:/root/.cargo/bin:/snap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cargo build --release
     plugin: rust
     build-packages: [cmake]
     stage-packages:
