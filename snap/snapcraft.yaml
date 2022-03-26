@@ -19,7 +19,9 @@ confinement: classic # use 'strict' once you have the right plugs and slots
 
 apps:
   lapce:
-    command: /root/parts/lapce/build/lapce
+    environment:
+      PATH: /root/parts/lapce/build:/root/parts/lapce/install/bin
+    command: lapce
 
 parts:
   lapce:
