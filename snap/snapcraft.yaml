@@ -26,3 +26,14 @@ parts:
     override-pull: snapcraftctl pull && sudo apt-get install -y pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev
     plugin: rust
     build-packages: [cmake]
+    stage-packages:
+      - libfontconfig1
+      - libfreetype6
+      - libpng16-16
+      - libxau6
+      - libxcb-render0
+      - libxcb-shape0
+      - libxcb-xfixes0
+      - libxcb1
+      - libxdmcp6
+      - libxkbcommon0
