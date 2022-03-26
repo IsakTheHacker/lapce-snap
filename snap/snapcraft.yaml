@@ -24,4 +24,4 @@ parts:
     source: https://github.com/lapce/lapce.git
     source-type: git
     plugin: rust
-    build-packages: [cmake]
+    build-packages: [cmake pkg-config]
