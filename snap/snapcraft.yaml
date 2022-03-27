@@ -26,7 +26,7 @@ parts:
     source: https://github.com/lapce/lapce.git
     source-type: git
     override-pull: snapcraftctl pull && sudo apt-get install -y pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev
-    override-build: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh && sh -s -- -y --no-modify-path --profile=minimal && export PATH=/root/.cargo/bin:/root/.cargo/bin:/snap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cargo build --release
+    override-build: snapcraftctl build && cargo build --release
     plugin: rust
     build-packages: [cmake]
     stage-packages:
