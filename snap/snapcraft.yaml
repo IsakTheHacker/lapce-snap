@@ -19,16 +19,20 @@ confinement: classic # use 'strict' once you have the right plugs and slots
 
 apps:
   lapce:
-    command: target/release/lapce
+    command: lapce
 
 parts:
   lapce:
     source: https://github.com/lapce/lapce.git
     source-type: git
-    override-pull: snapcraftctl pull && sudo apt-get install -y pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev
-    override-build: snapcraftctl build && cargo build --release
+    override-pull: snapcraftctl pull && sudo apt-get install -y pkg-config
     plugin: rust
-    build-packages: [cmake]
+    build-packages:
+      - cmake
+      - libfreetype6-dev
+      - libfontconfig1-dev
+      - libxcb-xfixes0-dev
+      - libxkbcommon-dev
     stage-packages:
       - libfontconfig1
       - libfreetype6
