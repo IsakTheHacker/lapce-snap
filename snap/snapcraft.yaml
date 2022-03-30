@@ -19,13 +19,14 @@ confinement: classic # use 'strict' once you have the right plugs and slots
 
 apps:
   lapce:
-    command: lapce
+    command: target/release/lapce
 
 parts:
   lapce:
     source: https://github.com/lapce/lapce.git
     source-type: git
     override-pull: snapcraftctl pull && sudo apt-get install -y pkg-config
+    override-build: snapcraftctl build && sudo cp -r /root/parts/lapce/install/bin target/release/
     plugin: rust
     build-packages:
       - cmake
