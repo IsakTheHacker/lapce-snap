@@ -27,5 +27,5 @@ jobs:
     
     - name: Try to install project
       run: |
-        sudo snap install --dangerous ${{ steps.build.outputs.snap }}
+        sudo snap install --dangerous --classic ${{ steps.build.outputs.snap }}
 
