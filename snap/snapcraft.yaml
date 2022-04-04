@@ -15,7 +15,7 @@ issues: https://github.com/lapce/lapce/issues
 license: Apache-2.0
 
 grade: stable # must be 'stable' to release into candidate/stable channels
-confinement: classic # use 'strict' once you have the right plugs and slots
+confinement: strict # use 'strict' once you have the right plugs and slots
 
 architectures:
   - build-on: amd64
@@ -30,12 +30,22 @@ architectures:
 apps:
   lapce:
     command: bin/lapce
+    plugs:
+      - desktop
+      - desktop-legacy
+      - wayland
+      - unity7
+      - cups-control
+      - gsettings
+      - home
 
 parts:
   lapce:
     source: https://github.com/lapce/lapce.git
     source-type: git
-    override-pull: snapcraftctl pull && sudo apt-get install -y pkg-config
+    override-pull: |
+      snapcraftctl pull
+      sudo apt-get install -y pkg-config
     plugin: rust
     build-packages:
       - cmake
