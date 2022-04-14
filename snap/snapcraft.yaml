@@ -69,4 +69,4 @@ parts:
       - libxcb1
       - libxdmcp6
       - libxkbcommon0
-      - libx11
+      - libx11-6
