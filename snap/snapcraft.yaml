@@ -70,3 +70,4 @@ parts:
       - libxdmcp6
       - libxkbcommon0
       - libx11-6
+      - libxcursor1
