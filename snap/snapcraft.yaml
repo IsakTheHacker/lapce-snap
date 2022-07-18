@@ -53,7 +53,6 @@ parts:
       - librhash0
       - pkgconf
       - libfreetype-dev
-      - librust-expat-sys-dev
       - fontconfig
       - libfontconfig1
       - libfontconfig1-dev
