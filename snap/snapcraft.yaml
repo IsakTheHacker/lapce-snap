@@ -1,6 +1,6 @@
 name: lapce # you probably want to 'snapcraft register <name>'
 adopt-info: lapce
-base: core18 # the base snap is the execution environment for this snap
+base: core20 # the base snap is the execution environment for this snap
 summary: Lightning-fast and Powerful Code Editor written in Rust! # 79 char long summary
 description: |
   Lapce is a fast and powerful code editor written in Rust which supports
@@ -23,9 +23,6 @@ architectures:
 
   - build-on: arm64
     run-on: arm64
-
-  - build-on: i386
-    run-on: i386
 
 apps:
   lapce:
@@ -52,6 +49,7 @@ parts:
       - libuv1
       - librhash0
       - pkgconf
+      - librust-expat-sys-dev
       - libfreetype-dev
       - fontconfig
       - libfontconfig1
